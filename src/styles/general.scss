@@ -5,8 +5,3 @@ $fa-font-path: './webfonts';
 @import '~@fortawesome/fontawesome-free/scss/solid.scss';
 
 @import './vars';
-
-body {
-	font-family: $main-font;
-	color: $text-color;
-}

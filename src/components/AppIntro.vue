@@ -1,7 +1,7 @@
 <template>
   <div id="container">
 <!-- Edit the letter attr to: N, E, T, F, L, I or X -->
-   <netflixintro letter="N">
+   <div class="netflixintro" letter="F">
     <div class="helper-1">
       <div class="effect-brush">
         <span class="fur-31"></span>
@@ -172,24 +172,24 @@
         <span class="fur-1"></span>
       </div>
     </div>
-  </netflixintro>
+  </div>
 </div>
 </template>
 
 <script>
 export default {
-
+    name: 'AppIntro'
 }
 </script>
 
-<style lang="scss">
+<style lang="sass"> 
 html,
-body{
+body
 	margin: 0
 	padding: 0
 	width: 100%
 	height: 100%
-}
+
 $bg-color: #000000
 $base-color: #e40913
 
@@ -203,7 +203,7 @@ $base-color: #e40913
 	background-color: $bg-color
 	overflow: hidden
 	
-	netflixintro
+	.netflixintro
 		display: block
 		position: relative
 		width: 300px
@@ -939,7 +939,7 @@ $base-color: #e40913
 					&::before 
 						animation-name: lumieres-moving-left
 						animation-duration: 5.5s
-				 
+				
 				.lamp-2,
 				.lamp-4,
 				.lamp-6,
