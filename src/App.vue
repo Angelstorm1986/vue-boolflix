@@ -35,7 +35,6 @@ export default {
   methods:{
     getMovies(queryParams){
       axios.get(this.apiPath+'movie', queryParams).then((res)=>{
-        console.log(res.data.results);
         this.movies = res.data.results;
         this.loading = false;
       }).catch((error)=>{
