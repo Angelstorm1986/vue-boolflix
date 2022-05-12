@@ -1,13 +1,12 @@
 <template>
     <section>
         <h2>{{title}}</h2>
-        <ul>
-            <li v-for="(item) in items" :key="item.id">
+        <ul class="row">
+            <li class="col-sm-6 col-md-3 col-lg-2" v-for="(item) in items" :key="item.id">
             id: {{item.id}}<br>
             titolo originale: {{item.original_title ? item.original_title : item.original_name}}<br>
             titolo: {{item.title ? item.title : item.name}}<br>
-            lingua: {{item.original_language}}
-            <img v-if="item.original_language === 'en' || item.original_language === 'it'" :src="require('../assets/images/' + item.original_language + '.jpg')" :alt="'Bandiera' + item.original_language">
+            lingua: <img v-if="item.original_language === 'en' || item.original_language === 'it'" :src="require('../assets/images/' + item.original_language + '.jpg')" :alt="'Bandiera' + item.original_language">
             <img v-else :src="require('../assets/images/' + flag + '.jpg')" :alt="'Bandiera' + flag"><br>
             voto: {{item.vote_average}}<br>
             </li>

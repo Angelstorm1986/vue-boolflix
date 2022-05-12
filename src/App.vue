@@ -13,7 +13,7 @@
 </template>
 
 <script>
-//import AppIntro from './components/AppIntro.vue';
+// import AppIntro from './components/AppIntro.vue';
 import AppGrid from './components/AppGrid.vue'
 import AppSearch from './components/AppSearch.vue'
 import axios from 'axios'
@@ -21,7 +21,7 @@ import axios from 'axios'
 export default {
   name: 'App',
   components: {
-    //AppIntro,
+    // AppIntro,
     AppSearch,
     AppGrid
   },
@@ -31,7 +31,7 @@ export default {
       apiPath: 'https://api.themoviedb.org/3/search/',
       movies:[],
       series:[],
-      //loadingIntro: false,
+      // loadingIntro: false,
       loading: false,
       loadingSeries: false
     }
@@ -39,6 +39,7 @@ export default {
   methods:{
     getMovies(queryParams){
       axios.get(this.apiPath+'movie', queryParams).then((res)=>{
+        console.log(res.data.results)
         this.movies = res.data.results;
         //this.loadingIntro = false;
         this.loading = false;
@@ -48,6 +49,7 @@ export default {
     },
     getSeries(queryParams){
       axios.get(this.apiPath+'tv', queryParams).then((res)=>{
+        console.log(res.data.results)
         this.series = res.data.results;
         //this.loadingIntro = false;
         this.loadingSeries = false;
@@ -68,7 +70,11 @@ export default {
       this.getMovies(queryParams);
       this.getSeries(queryParams);
     }
-  }
+  },
+  // beforeCreate(){
+  //   this.loadingIntro = true;
+  //   setTimeout(this.loadingIntro = false, 10000);
+  // }
 }
 </script>
 
