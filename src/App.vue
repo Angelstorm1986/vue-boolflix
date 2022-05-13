@@ -60,7 +60,8 @@ export default {
       const queryParams = {
         params:{
           api_key: this.apiKey,
-          query: text.split(' ').join('-')
+          query: text.split(' ').join('-'),
+          language: 'it-IT'
         },
       }
       //this.loadingIntro = true;

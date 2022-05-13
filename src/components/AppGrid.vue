@@ -1,7 +1,7 @@
 <template>
     <section class="container">
         <div class="row gy-3">
-            <div class="card-cicle col-sm-6 col-md-3" v-for="(item) in items" :key="item.id">
+            <div class="card-cicle col-sm-6 col-md-4 col-lg-3 col-xl-2 mx-0" v-for="(item) in items" :key="item.id">
                 <img class="image-film" :src="imagePath + item.poster_path" alt="">
                 <div class="overlay">
                     <span>{{ item.id }}</span>
@@ -46,8 +46,10 @@ section{
         .card-cicle{
             color: $base-color;
             position: relative;
+            max-height: 350px;
             .image-film{
                 max-height: 400px;
+                height: 100%;
                 width: 100%;
             }
             .overlay{
