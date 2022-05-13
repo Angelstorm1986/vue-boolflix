@@ -4,13 +4,15 @@
             <div class="card-cicle col-sm-6 col-md-3" v-for="(item) in items" :key="item.id">
                 <img class="image-film" :src="imagePath + item.poster_path" alt="">
                 <div class="overlay">
-                    <span>{{item.id}}</span>
-                    <h4>{{item.title ? item.title : item.name}}</h4>
-                    <span><img class="image-flag" v-if="item.original_language === 'en' || item.original_language === 'it'" :src="require('../assets/images/' + item.original_language + '.jpg')" :alt="'Bandiera' + item.original_language">
-                    <img class="image-flag" v-else :src="require('../assets/images/' + flag + '.jpg')" :alt="'Bandiera' + flag"></span>
+                    <span>{{ item.id }}</span>
+                    <h4>{{ item.title ? item.title : item.name }}</h4>
+                    <p>{{ item.release_date }}</p>
+                    <p>{{ item.overview }}</p>
+                    <img class="image-flag" v-if="item.original_language === 'en' || item.original_language === 'it'" :src="require('../assets/images/' + item.original_language + '.jpg')" :alt="'Bandiera' + item.original_language">
+                    <img class="image-flag" v-else :src="require('../assets/images/' + flag + '.jpg')" :alt="'Bandiera' + flag">
                     <div>
                         <span v-for="numero in 5" :key="numero">
-                            <i :class="numero <= (item.vote_average / 2) ? 'fa-solid fa-star voted' : 'fa-regular fa-star'"></i>
+                            <i :class="numero <= (Math.ceil(item.vote_average / 2)) ? 'fa-solid fa-star voted' : 'fa-regular fa-star'"></i>
                         </span>
                     </div>
                 </div>
@@ -58,6 +60,7 @@ section{
                 position: absolute;
                 display: none;
                 padding: 20px;
+                overflow-y: auto;
                 .image-flag{
                     max-width: 20px;
                 }
