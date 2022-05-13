@@ -1,7 +1,7 @@
 <template>
-    <div>
-      <input type="text" placeholder="Cerca film e serie TV" v-model="search" @keyup.enter="cerca">
-      <button @click="cerca">Cerca</button>
+    <div class="d-flex justify-content-end align-items-center">
+      <input class="search" type="text" placeholder="Cerca Film e Serie TV..." v-model="search" @keyup.enter="cerca">
+      <i @click="cerca" class="fa-solid fa-magnifying-glass"></i>
     </div>
 </template>
 
@@ -23,5 +23,19 @@ export default {
 </script>
 
 <style lang="scss">
-
+@import '../styles/vars.scss';
+div{
+    margin-right: 20px;
+    .search{
+        border: none;
+    }
+    ::placeholder {
+        opacity: 0.5;
+    }
+    .fa-magnifying-glass{
+        color: $base-color;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+}
 </style>
