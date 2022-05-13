@@ -2,12 +2,12 @@
   <div id="app">
     <!-- <app-intro v-show="loadingIntro"/> -->
     <header>
-      <h1 class="text-center">Boolflix</h1>
+      <h1>Boolflix</h1>
       <app-search @performSearch="search" />
     </header>
-    <main>     
-      <app-grid :items="movies" title="Movies" :loader="loading"/>
-      <app-grid :items="series" title="Series" :loader="loadingSeries"/>
+    <main>   
+      <app-grid :items="movies" :loader="loading"/>
+      <app-grid :items="series" :loader="loadingSeries"/>
     </main>
   </div>
 </template>
@@ -39,6 +39,7 @@ export default {
   methods:{
     getMovies(queryParams){
       axios.get(this.apiPath+'movie', queryParams).then((res)=>{
+        console.log(res.data.results)
         this.movies = res.data.results;
         //this.loadingIntro = false;
         this.loading = false;
@@ -78,7 +79,8 @@ export default {
 
 <style lang="scss">
 @import './styles/general.scss';
-h1{
+h1,
+h2{
   text-transform: uppercase;
   color: $base-color;
 }

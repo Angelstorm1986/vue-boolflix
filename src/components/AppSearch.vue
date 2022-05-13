@@ -28,9 +28,13 @@ div{
     margin-right: 20px;
     .search{
         border: none;
+        background-color: $bg-color;
+        outline: none;
+        color: $base-color;
     }
     ::placeholder {
         opacity: 0.5;
+        color: $base-color;
     }
     .fa-magnifying-glass{
         color: $base-color;
@@ -38,4 +42,5 @@ div{
         cursor: pointer;
     }
 }
+
 </style>
